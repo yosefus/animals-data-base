@@ -32,7 +32,7 @@ newLowerCase.forEach((item) => {
 function getAPick() {
   return Number(
     prompt(
-      'please pick a number 1-2 \r\n 1 to search by animal name, \r\n 2 to search by code  \r\n3 to add a new animal \r\n4 to Exit '
+      'please pick a number 1-2 \r\n 1 to search by animal name, \r\n 2 to search by code  \r\n3 to add a new animal \r\n4 to delete by id  \r\n5 to Exit '
     )
   );
 }
@@ -49,6 +49,9 @@ do {
       addAnAnimal();
       break;
     case 4:
+      deleteAnimal();
+      break;
+    case 5:
       break;
     default:
       alert('wrong input try again');
@@ -107,4 +110,17 @@ function addAnAnimal() {
   idArr.push(animalId);
 
   alert('the animal added Successfully');
+}
+
+function deleteAnimal() {
+  let id = getAnimalId();
+
+  let index = idArr.indexOf(id);
+
+  if (index == -1) alert('didnt find any');
+
+  namesArr.splice(index, 1);
+  idArr.splice(index, 1);
+
+  alert('delated seccsesfuly');
 }
